@@ -6,18 +6,13 @@
 <meta name="theme-color" content="#09070f">
 <title>FitFlow — Your Fitness Journey</title>
 <style>
-:root{
-  --bg:#09070f;--card:#171020;--purple:#a56bff;
-  --pink:#e29aff;--text:#f8f4ff;--muted:#b8abc9;
-  --line:#39274c;--green:#77edbd;
-}
+:root{--bg:#09070f;--card:#171020;--purple:#a56bff;--pink:#e29aff;--text:#f8f4ff;--muted:#b8abc9;--line:#39274c;--green:#77edbd}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Arial,sans-serif}
 button,input,select{font:inherit}
 button{border:0;border-radius:12px;padding:11px 15px;background:var(--purple);color:#140b20;font-weight:750;cursor:pointer}
 button.secondary{background:#2b2039;color:white;border:1px solid var(--line)}
-button:disabled{opacity:.5;cursor:not-allowed}
-button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+button:disabled{opacity:.5}
 .app{max-width:1050px;margin:auto;padding:18px 14px 40px}
 header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;gap:10px}
 .brand{display:flex;align-items:center;gap:11px}
@@ -43,84 +38,13 @@ h3{font-size:18px;margin:0}
 .exercise .emoji{display:block;font-size:28px;margin-bottom:6px}
 .exercise strong{display:block;font-size:14px}
 .exercise small{display:block;color:var(--muted);margin-top:4px;font-size:11px}
-
-/* Animated exercise demonstration stage */
-.demo-wrap{
-  display:grid;place-items:center;min-height:190px;
-  overflow:hidden;position:relative;
-  background:radial-gradient(ellipse at 50% 65%,#482365,#100b17 72%);
-  border:1px solid var(--line);border-radius:15px;margin:12px 0;
-}
-.demo-wrap:before{
-  content:"";position:absolute;width:150px;height:18px;
-  bottom:25px;border-radius:50%;
-  background:#a56bff22;filter:blur(9px);
-  animation:groundGlow 2s ease-in-out infinite alternate;
-}
-.demo{
-  position:relative;z-index:1;font-size:83px;line-height:1;
-  display:inline-block;transform-origin:center bottom;
-  filter:drop-shadow(0 9px 15px #a56bff35);
-  animation:breathe 2s ease-in-out infinite;
-}
-.demo.jacks{animation:jumpingJacks .8s ease-in-out infinite}
-.demo.squat{animation:squatMotion 1.6s ease-in-out infinite}
-.demo.march{animation:marchMotion .8s ease-in-out infinite}
-.demo.lunge{animation:lungeMotion 1.6s ease-in-out infinite}
-.demo.plank{animation:plankMotion 2s ease-in-out infinite}
-.demo.push{animation:pushMotion 1.4s ease-in-out infinite}
-.demo.stretch{animation:stretchMotion 2.2s ease-in-out infinite}
-.demo.rest{animation:restMotion 3s ease-in-out infinite}
-
-@keyframes jumpingJacks{
-  0%,100%{transform:translateY(0) scale(1) rotate(-5deg)}
-  25%{transform:translateY(-23px) scale(1.08) rotate(5deg)}
-  50%{transform:translateY(0) scale(.94) rotate(-3deg)}
-  75%{transform:translateY(-17px) scale(1.05) rotate(4deg)}
-}
-@keyframes squatMotion{
-  0%,100%{transform:translateY(-8px) scaleY(1);filter:drop-shadow(0 9px 15px #a56bff35)}
-  50%{transform:translateY(13px) scaleY(.78);filter:drop-shadow(0 3px 8px #a56bff70)}
-}
-@keyframes marchMotion{
-  0%,100%{transform:translateY(0) rotate(-9deg) scale(1)}
-  25%{transform:translateY(-12px) rotate(9deg) scale(1.03)}
-  50%{transform:translateY(0) rotate(-9deg) scale(1)}
-  75%{transform:translateY(-12px) rotate(9deg) scale(1.03)}
-}
-@keyframes lungeMotion{
-  0%,100%{transform:translateX(-8px) translateY(0) scale(1)}
-  50%{transform:translateX(8px) translateY(12px) scale(.94)}
-}
-@keyframes plankMotion{
-  0%,100%{transform:rotate(-7deg) translateY(0)}
-  50%{transform:rotate(7deg) translateY(-4px)}
-}
-@keyframes pushMotion{
-  0%,100%{transform:translateY(0) rotate(-7deg) scale(1)}
-  50%{transform:translateY(8px) rotate(7deg) scale(.91)}
-}
-@keyframes stretchMotion{
-  0%,100%{transform:rotate(-12deg) translateY(0)}
-  50%{transform:rotate(12deg) translateY(-12px)}
-}
-@keyframes restMotion{
-  0%,100%{transform:translateY(0) scale(1)}
-  50%{transform:translateY(-5px) scale(1.035)}
-}
-@keyframes breathe{
-  0%,100%{transform:translateY(0) scale(1)}
-  50%{transform:translateY(-7px) scale(1.04)}
-}
-@keyframes groundGlow{
-  from{transform:scaleX(.75);opacity:.4}
-  to{transform:scaleX(1.15);opacity:.9}
-}
-.demo-label{position:absolute;bottom:7px;right:10px;color:#c9a8f0;font-size:10px;letter-spacing:1px;text-transform:uppercase}
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
-}
-
+.demo-wrap{display:grid;place-items:center;min-height:145px;background:radial-gradient(circle,#38214e,#100b17 70%);border:1px solid var(--line);border-radius:15px;margin:12px 0}
+.demo{font-size:75px;animation:bob 1s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(7px) rotate(-6deg)}to{transform:translateY(-7px) rotate(6deg)}}
+.demo.squat{animation:squat 1.2s ease-in-out infinite alternate}
+@keyframes squat{from{transform:translateY(-6px) scaleY(1)}to{transform:translateY(8px) scaleY(.8)}}
+.demo.plank{animation:plank 1.4s ease-in-out infinite alternate}
+@keyframes plank{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
 .timer{font-size:clamp(42px,10vw,56px);text-align:center;font-weight:850;font-variant-numeric:tabular-nums;padding:8px}
 .tabs{display:flex;background:#0d0913;border-radius:12px;padding:4px;margin:12px 0}
 .tabs button{flex:1;background:transparent;color:var(--muted)}
@@ -139,6 +63,7 @@ input[type=checkbox]{accent-color:var(--purple);width:18px;height:18px}
 .notice{font-size:11px;color:var(--muted);line-height:1.6}
 .history-row{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
 .history-row:last-child{border:0}
+.history-row span:last-child{color:var(--green);text-align:right}
 .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#f4eaff;color:#1a0c28;padding:12px 16px;border-radius:12px;font-weight:750;font-size:13px;display:none;z-index:5;max-width:90%;text-align:center}
 footer{text-align:center;color:#857995;font-size:11px;margin-top:18px}
 @media(max-width:700px){.layout{grid-template-columns:1fr}.stat{padding:12px}.num{font-size:22px}.hero{padding:21px}}
@@ -174,10 +99,7 @@ footer{text-align:center;color:#857995;font-size:11px;margin-top:18px}
 
 <section class="panel">
 <div class="heading"><h3>✨ Exercise demonstration</h3><span class="sub">Animated guide</span></div>
-<div class="demo-wrap">
-<div class="demo jacks" id="demo" aria-hidden="true">🤸</div>
-<div class="demo-label">Movement preview</div>
-</div>
+<div class="demo-wrap"><div class="demo" id="demo">🤸</div></div>
 <h3 id="exerciseName">Jumping jacks</h3>
 <p class="muted" id="exerciseDesc" style="line-height:1.6">Jump gently while moving your arms.</p>
 <div class="tabs"><button id="countTab" class="active" onclick="setMode('count')">Countdown</button><button id="stopTab" onclick="setMode('stop')">Stopwatch</button></div>
@@ -231,208 +153,115 @@ footer{text-align:center;color:#857995;font-size:11px;margin-top:18px}
 </div>
 <footer>FITFLOW • YOUR EVERYDAY FITNESS COMPANION</footer>
 </div>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 const exercises=[
-{id:'jacks',name:'Jumping jacks',emoji:'🤸',kind:'jacks',seconds:30,desc:'Stand tall, jump your feet apart while raising your arms, then return gently.'},
+{id:'jacks',name:'Jumping jacks',emoji:'🤸',kind:'',seconds:30,desc:'Stand tall, jump your feet apart while raising your arms, then return gently.'},
 {id:'squat',name:'Bodyweight squats',emoji:'🏋️',kind:'squat',seconds:30,desc:'Bend your knees and hips comfortably, then stand back up with control.'},
-{id:'march',name:'March in place',emoji:'🏃',kind:'march',seconds:45,desc:'March gently in place, lifting each knee comfortably and swinging your arms.'},
-{id:'lunge',name:'Reverse lunges',emoji:'🦵',kind:'lunge',seconds:30,desc:'Step one foot back, bend your knees as comfortable, return to standing and alternate.'},
+{id:'march',name:'March in place',emoji:'🏃',kind:'',seconds:45,desc:'March gently in place, lifting each knee comfortably and swinging your arms.'},
+{id:'lunge',name:'Reverse lunges',emoji:'🦵',kind:'squat',seconds:30,desc:'Step one foot back, bend your knees as comfortable, return to standing and alternate.'},
 {id:'plank',name:'Knee plank',emoji:'🧘',kind:'plank',seconds:20,desc:'Rest on your forearms and knees, keep your body aligned and breathe normally.'},
-{id:'push',name:'Wall push-ups',emoji:'💪',kind:'push',seconds:30,desc:'Place your hands on a wall at chest height, lean in gently and push away.'},
-{id:'stretch',name:'Standing stretch',emoji:'🙆',kind:'stretch',seconds:30,desc:'Reach your arms overhead and gently stretch side to side without forcing movement.'},
-{id:'rest',name:'Rest and breathe',emoji:'🌿',kind:'rest',seconds:30,desc:'Sit or stand comfortably, breathe normally and let your body recover.'}
+{id:'push',name:'Wall push-ups',emoji:'💪',kind:'plank',seconds:30,desc:'Place your hands on a wall at chest height, lean in gently and push away.'},
+{id:'stretch',name:'Standing stretch',emoji:'🙆',kind:'',seconds:30,desc:'Reach your arms overhead and gently stretch side to side without forcing movement.'},
+{id:'rest',name:'Rest and breathe',emoji:'🌿',kind:'',seconds:30,desc:'Sit or stand comfortably, breathe normally and let your body recover.'}
 ];
-
 const $=id=>document.getElementById(id);
-function load(key,fallback){
-  try{
-    let x=localStorage.getItem(key);
-    return x===null?fallback:JSON.parse(x);
-  }catch(e){return fallback}
-}
-function save(key,value){
-  try{localStorage.setItem(key,JSON.stringify(value))}
-  catch(e){notify('Unable to save in this browser. Check storage settings.')}
-}
-function dayKey(){
-  let d=new Date();
-  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-}
-
+function load(key,fallback){try{let x=localStorage.getItem(key);return x===null?fallback:JSON.parse(x)}catch(e){return fallback}}
+function save(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch(e){notify('Unable to save in this browser. Check storage settings.')}}
+function dayKey(){let d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 let data=load('fitflow-v1',{history:[],water:{},done:{},goal:8});
-if(!data||!Array.isArray(data.history)||!data.water||!data.done){
-  data={history:[],water:{},done:{},goal:8};
-}
-
-let selected=exercises[0],mode='count',remaining=30,elapsed=0;
-let running=false,intervalId=null,lastTick=0,reminderId=null,toastId=null;
-let reminder=load('fitflow-reminders-v1',{
-  enabled:false,interval:60,start:'08:00',end:'21:00'
-});
-
+if(!data||!Array.isArray(data.history))data={history:[],water:{},done:{},goal:8};
+let selected=exercises[0],mode='count',remaining=30,elapsed=0,running=false,intervalId=null,lastTick=0,reminderId=null,toastId=null;
+let reminder=load('fitflow-reminders-v1',{enabled:false,interval:60,start:'08:00',end:'21:00'});
 function todayWater(){return Number(data.water[dayKey()]||0)}
-function todayDone(){
-  return Array.isArray(data.done[dayKey()])?data.done[dayKey()]:[];
-}
-
+function todayDone(){return Array.isArray(data.done[dayKey()])?data.done[dayKey()]:[]}
 function renderExercises(){
-  $('exerciseList').innerHTML=exercises.map(e=>
-    `<button class="exercise ${e.id===selected.id?'active':''}" onclick="chooseExercise('${e.id}')">
-      <span class="emoji">${e.emoji}</span>
-      <strong>${e.name}</strong>
-      <small>${e.seconds} seconds · beginner friendly</small>
-    </button>`
-  ).join('');
+$('exerciseList').innerHTML=exercises.map(e=>`<button class="exercise ${e.id===selected.id?'active':''}" onclick="chooseExercise('${e.id}')"><span class="emoji">${e.emoji}</span><strong>${e.name}</strong><small>${e.seconds} seconds · beginner friendly</small></button>`).join('');
 }
-
 function chooseExercise(id){
-  let e=exercises.find(x=>x.id===id);
-  if(!e)return;
-  stopTimer();
-  selected=e;
-  remaining=e.seconds;
-  elapsed=0;
-
-  $('exerciseName').textContent=e.name;
-  $('exerciseDesc').textContent=e.desc;
-
-  // Change animation class and exercise icon together.
-  $('demo').textContent=e.emoji;
-  $('demo').className='demo '+e.kind;
-  $('demo').setAttribute('aria-label',e.name+' animated preview');
-
-  $('duration').value=String(
-    [15,30,45,60,90,120].includes(e.seconds)?e.seconds:30
-  );
-  remaining=Number($('duration').value);
-  renderExercises();
-  renderTimer();
+let e=exercises.find(x=>x.id===id);if(!e)return;
+stopTimer();selected=e;remaining=e.seconds;elapsed=0;
+$('exerciseName').textContent=e.name;$('exerciseDesc').textContent=e.desc;
+$('demo').textContent=e.emoji;$('demo').className='demo '+e.kind;
+$('duration').value=String([15,30,45,60,90,120].includes(e.seconds)?e.seconds:30);
+remaining=Number($('duration').value);renderExercises();renderTimer();
 }
-
-function setMode(m){
-  stopTimer();
-  mode=m;
-  $('countTab').classList.toggle('active',m==='count');
-  $('stopTab').classList.toggle('active',m==='stop');
-  $('durationField').style.display=m==='count'?'flex':'none';
-  resetTimer();
-}
-
-function formatTime(s){
-  s=Math.max(0,Math.floor(s));
-  return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
-}
-
-function renderTimer(){
-  $('timerDisplay').textContent=formatTime(mode==='count'?remaining:elapsed);
-  $('startBtn').textContent=running?'Ⅱ Pause':'▶ Start';
-}
-
-function stopTimer(){
-  running=false;
-  if(intervalId)clearInterval(intervalId);
-  intervalId=null;
-  renderTimer();
-}
-
+function setMode(m){stopTimer();mode=m;$('countTab').classList.toggle('active',m==='count');$('stopTab').classList.toggle('active',m==='stop');$('durationField').style.display=m==='count'?'flex':'none';resetTimer()}
+function formatTime(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function renderTimer(){$('timerDisplay').textContent=formatTime(mode==='count'?remaining:elapsed);$('startBtn').textContent=running?'Ⅱ Pause':'▶ Start'}
+function stopTimer(){running=false;if(intervalId)clearInterval(intervalId);intervalId=null;renderTimer()}
 function toggleTimer(){
-  if(running){stopTimer();return}
-  if(mode==='count'&&remaining<=0){
-    remaining=Number($('duration').value||30);
-  }
-  running=true;
-  lastTick=Date.now();
-  renderTimer();
-
-  intervalId=setInterval(()=>{
-    let now=Date.now();
-    let diff=Math.floor((now-lastTick)/1000);
-    if(diff<1)return;
-    lastTick+=diff*1000;
-
-    if(mode==='count'){
-      remaining=Math.max(0,remaining-diff);
-      if(remaining===0){
-        stopTimer();
-        notify('Timer complete! Take a breath, then log your exercise.');
-      }
-    }else{
-      elapsed+=diff;
-    }
-    renderTimer();
-  },200);
+if(running){stopTimer();return}
+if(mode==='count'&&remaining<=0)remaining=Number($('duration').value||30);
+running=true;lastTick=Date.now();renderTimer();
+intervalId=setInterval(()=>{
+let now=Date.now(),diff=Math.floor((now-lastTick)/1000);
+if(diff<1)return;lastTick+=diff*1000;
+if(mode==='count'){remaining=Math.max(0,remaining-diff);if(remaining===0){stopTimer();notify('Timer complete! Take a breath, then log your exercise.')}}else elapsed+=diff;
+renderTimer();
+},200);
 }
-
-function resetTimer(){
-  stopTimer();
-  remaining=Number($('duration').value||30);
-  elapsed=0;
-  renderTimer();
-}
-
+function resetTimer(){stopTimer();remaining=Number($('duration').value||30);elapsed=0;renderTimer()}
 function completeExercise(){
-  let done=todayDone();
-  if(done.includes(selected.id)){
-    notify('This exercise is already logged today.');
-    return;
-  }
-
-  done.push(selected.id);
-  data.done[dayKey()]=done;
-
-  let seconds=mode==='count'
-    ?Math.max(0,Number($('duration').value)-remaining)
-    :elapsed;
-
-  let minutes=Math.max(1,Math.round(seconds/60));
-  data.history.unshift({
-    id:selected.id,
-    name:selected.name,
-    date:new Date().toISOString(),
-    minutes:minutes
-  });
-
-  data.history=data.history.slice(0,100);
-  save('fitflow-v1',data);
-  renderProgress();
-  notify('Exercise saved. Great job! 💜');
+let done=todayDone();if(done.includes(selected.id)){notify('This exercise is already logged today.');return}
+done.push(selected.id);data.done[dayKey()]=done;
+let seconds=mode==='count'?Math.max(0,Number($('duration').value)-remaining):elapsed;
+let minutes=Math.max(1,Math.round(seconds/60));
+data.history.unshift({id:selected.id,name:selected.name,date:new Date().toISOString(),minutes:minutes});
+data.history=data.history.slice(0,100);save('fitflow-v1',data);renderProgress();notify('Exercise saved. Great job! 💜');
 }
-
-function esc(s){
-  return String(s).replace(/[&<>"']/g,c=>({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-  }[c]));
-}
-
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function renderProgress(){
-  let h=data.history;
-  let minutes=h.reduce((sum,x)=>sum+(Number(x.minutes)||0),0);
-  let done=todayDone();
-
-  $('totalWorkouts').textContent=h.length;
-  $('totalMinutes').textContent=minutes;
-  $('sessions').textContent=h.length;
-  $('minutesLogged').textContent=minutes;
-  $('doneToday').textContent=done.length;
-
-  $('workoutProgress').style.width=(done.length/exercises.length*100)+'%';
-  $('progressCaption').textContent=done.length
-    ?`${done.length} of ${exercises.length} exercise types logged today.`
-    :'Complete an exercise to start your progress.';
-
-  $('history').innerHTML=h.length
-    ?h.slice(0,8).map(x=>
-      `<div class="history-row">
-        <span>${esc(x.name)}<br>
-        <small class="sub">${new Date(x.date).toLocaleDateString()} · ${new Date(x.date).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</small>
-        </span>
-        <span>✓ ${x.minutes} min</span>
-      </div>`
-    ).join('')
-    :'<div class="muted">Your completed exercises will appear here.</div>';
+let h=data.history,minutes=h.reduce((sum,x)=>sum+(Number(x.minutes)||0),0),done=todayDone();
+$('totalWorkouts').textContent=h.length;$('totalMinutes').textContent=minutes;$('sessions').textContent=h.length;$('minutesLogged').textContent=minutes;$('doneToday').textContent=done.length;
+$('workoutProgress').style.width=(done.length/exercises.length*100)+'%';
+$('progressCaption').textContent=done.length?`${done.length} of ${exercises.length} exercise types logged today.`:'Complete an exercise to start your progress.';
+$('history').innerHTML=h.length?h.slice(0,8).map(x=>`<div class="history-row"><span>${esc(x.name)}<br><small class="sub">${new Date(x.date).toLocaleDateString()} · ${new Date(x.date).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</small></span><span>✓ ${x.minutes} min</span></div>`).join(''):'<div class="muted">Your completed exercises will appear here.</div>';
 }
-
-function clearHistory(){
-  if(!confirm('Clear your workout histor
+function clearHistory(){if(!confirm('Clear your workout history and completion records?'))return;data.history=[];data.done={};save('fitflow-v1',data);renderProgress();notify('History cleared.')}
+function renderWater(){
+let n=todayWater(),goal=Math.max(1,Number(data.goal)||8);
+$('waterAmount').textContent=n;$('waterGoalLabel').textContent=goal;$('waterGoal').value=goal;$('todayWaterStat').textContent=n;
+$('waterProgress').style.width=Math.min(100,n/goal*100)+'%';
+$('waterCups').innerHTML=Array.from({length:Math.min(goal,16)},(_,i)=>`<div class="cup ${i<n?'filled':''}" title="Glass ${i+1}">${i<n?'✓':i+1}</div>`).join('');
+}
+function addWater(){data.water[dayKey()]=todayWater()+1;save('fitflow-v1',data);renderWater();notify('Water logged 💧')}
+function removeWater(){if(!todayWater())return;data.water[dayKey()]=todayWater()-1;save('fitflow-v1',data);renderWater()}
+function changeGoal(){data.goal=Math.max(1,Math.min(30,Number($('waterGoal').value)||8));save('fitflow-v1',data);renderWater()}
+function notify(message){let el=$('toast');el.textContent=message;el.style.display='block';if(toastId)clearTimeout(toastId);toastId=setTimeout(()=>el.style.display='none',3000)}
+function withinReminderHours(){
+let now=new Date(),current=now.getHours()*60+now.getMinutes();
+function mins(t){let p=(t||'00:00').split(':').map(Number);return p[0]*60+p[1]}
+let start=mins(reminder.start),end=mins(reminder.end);
+return start<=end?current>=start&&current<=end:current>=start||current<=end;
+}
+function saveReminderSettings(){
+reminder={enabled:$('remindersEnabled').checked,interval:Number($('reminderInterval').value)||60,start:$('reminderStart').value||'08:00',end:$('reminderEnd').value||'21:00'};
+save('fitflow-reminders-v1',reminder);startReminders();
+notify(reminder.enabled?'Reminder settings saved. Keep FitFlow open.':'Water reminders disabled.');
+}
+function startReminders(){
+if(reminderId)clearInterval(reminderId);reminderId=null;
+if(!reminder.enabled)return;
+let last=Date.now();
+reminderId=setInterval(()=>{
+let now=Date.now();
+if(now-last>=reminder.interval*60000&&withinReminderHours()){
+last=now;
+if(document.visibilityState==='visible')notify('💧 Time for a water break!');
+}
+},15000);
+}
+function init(){
+renderExercises();chooseExercise(selected.id);renderProgress();renderWater();
+$('remindersEnabled').checked=!!reminder.enabled;
+$('reminderInterval').value=String(reminder.interval||60);
+$('reminderStart').value=reminder.start||'08:00';$('reminderEnd').value=reminder.end||'21:00';
+startReminders();
+}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&reminder.enabled)notify('Welcome back to FitFlow 💜')});
+init();
+</script>
+</body>
+</html>
